@@ -17,21 +17,55 @@ body {
 /* ============================================ */
 /* ========= ENCABEZADO (HEADER) ============== */
 /* ============================================ */
-.top-bar { background-color: rgb(0, 79, 160); padding: 8px 0; font-size: 23px; border-bottom: 1px solid #e7e7e7; }
-.top-bar .container, .main-nav-bar .container { display: flex; justify-content: space-between; align-items: center; }
+.top-bar { background-color: rgb(0, 79, 160); padding: 15px 30px;; font-size: 23px; border-bottom: 1px solid #e7e7e7; }
+.top-bar .container, .main-nav-bar .container {
+    display: flex;
+    justify-content: center; /* <-- VALOR CLAVE CAMBIADO A 'center' */
+    align-items: center;
+    gap: 40px; /* <-- Esto crea el espacio uniforme entre elementos */
+}
 .social-icons a { color: #ffffff; margin-right: 15px; text-decoration: none; transition: color 0.3s; }
 .utility-nav ul { margin: 0; padding: 0; list-style: none; display: flex; }
 .utility-nav li a { text-decoration: none; color: #ffffff; margin-left: 20px; font-weight: 500; transition: color 0.3s; }
 .main-nav-bar {
-    
-    background-color: #ffffff; 
-    padding-right: 600px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    background-color: #ffffff;
+    padding: 15px 30px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* <-- ESTE ES EL CAMBIO CLAVE */
+    gap: 30px; 
 }
-.logos { display: flex; align-items: center; gap: 15px; }
-.logos img { max-height: 50px; }
-.main-navigation ul { margin: 100; padding: 200; list-style: none; display: flex; }
-.main-navigation li a { text-decoration: none; color: #002b5c; font-weight: 600; padding: 10px 15px; transition: color 0.3s; }
+
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logos img {
+    max-height: 60px; /* <-- CAMBIA ESTE VALOR para el tamaño de los logos */
+}
+
+.main-navigation ul {
+    margin: 0; /* Corregido (antes 100) */
+    padding: 0; /* Corregido (antes 200) */
+    list-style: none;
+    display: flex;
+    align-items: center; /* Centra los items del menú verticalmente */
+}
+
+.main-navigation li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+    font-size: 16px; /* <-- CAMBIA ESTE VALOR para el tamaño del texto */
+    padding: 15px 20px; /* <-- Aumenta el espaciado alrededor del texto */
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+
 .cta-button { background-color: #e4002b; color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 20px; font-weight: bold; transition: background-color 0.3s; }
 .cta-button:hover { background-color: #c30024; }
 
@@ -42,12 +76,19 @@ body {
 /* ========= CARRUSEL (HERO SLIDER) - CON ANIMACIÓN =========== */
 /* ============================================ */
 .hero-slider {
-    background-image: linear-gradient(to right, rgba(115, 96, 179, 0.95), rgba(94, 73, 151, 0.95));
+    /* El gradiente va PRIMERO, y después la imagen, separados por una coma */
+    background-image: linear-gradient(to right, rgba(99, 73, 172, 0.712), rgba(75, 24, 218, 0.452)), url('https://www.upb.edu.co/es/imagenes/imgtipod-blgleyendosinseparador-megustarialeer-1464204951973.jpg');
+    
+    /* Propiedades añadidas para que la imagen de fondo se vea bien */
+    background-size: cover;
+    background-position: center;
+    /*background-image: url(https://uniempresarial.edu.co/wp-content/uploads/2025/05/Biblioteca-slide-scaled.jpg);
+    /* El resto de tus propiedades */
     padding: 80px 0;
-    position: relative; /* <-- MUY IMPORTANTE para la animación */
+    position: relative;
     overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-    min-height: 350px; /* <-- AÑADIDO para asegurar que el contenedor no colapse */
+    min-height: 350px;
 }
 
 .slide { 
@@ -132,8 +173,17 @@ body {
 /* ============================================ */
 /* ========= TARJETAS DE ACCESO RÁPIDO ======== */
 /* ============================================ */
-.feature-cards { padding: 40px 0; margin-top: 10px; position: relative; z-index: 10; }
-.feature-cards .container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.feature-cards { padding: 40px 0; 
+    margin-top: 10px; 
+    position: relative; 
+    z-index: 10; }
+
+.feature-cards .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 285px;
+    justify-content: center; /* <-- AÑADE ESTA LÍNEA PARA CENTRAR */
+}
 .card {
     background-color: rgb(127, 90, 182); 
     color: #ffffff;
@@ -173,42 +223,148 @@ body {
 /* ============================================ */
 /* ===== SECCIONES DE CONTENIDO GENERALES ===== */
 /* ============================================ */
-.content-section { padding: 60px 0; }
-.section-title-container { display: block; }
+
+.content-section {
+    padding: 60px 15px; /* Padding ajustado para móviles */
+}
+
+.section-title-container {
+    display: block;
+}
+
 .section-title {
     text-align: center;
-    margin: 1px auto 50px auto;
-    padding: 10px 40px;
-    background-image: linear-gradient(125deg, rgb(196, 28, 73),rgb(35, 5, 201));
-    border-radius: 15px;
+    margin: 20px auto 60px auto; /* Mayor margen inferior para más espacio */
+    padding: 15px 40px;
+    /* Gradiente ajustado para mayor fidelidad a la imagen */
+    background-image: linear-gradient(90deg, #d4145a, #8A6FDF, #5e4997);
+    border-radius: 50px; /* Borde redondeado para forma de píldora */
 }
+
 .section-title h2 {
     color: white;
-    font-size: 60px;
+    font-size: 42px; /* Tamaño ajustado para mejor balance */
     font-weight: 700;
     text-transform: uppercase;
     margin: 0;
+    letter-spacing: 1.5px; /* Espaciado entre letras */
 }
-.content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: start; } /* Ajustado a align-items: start */
-.services-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.content-item { text-align: center; 
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Usa auto-fit para flexibilidad */
+    gap: 40px;
+    align-items: stretch; /* <-- ¡Nueva y crucial! Asegura que todos los ítems de la fila tengan la misma altura */
+}
+
+.services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: stretch; /* <-- ¡Nueva y crucial! */
+}
+
+.content-item {
+    text-align: center; 
     display: flex; 
     flex-direction: column; 
-    align-items: center; 
-} /* Añadido flexbox para centrar contenido */
+    align-items: center; /* Centra horizontalmente el contenido de cada tarjeta */
+    justify-content: space-between; /* Distribuye el espacio verticalmente entre los elementos */
+    transition: transform 0.5s ease;
+    padding: 20px 25px; /* Añade un poco de padding interno para mejor estética */
+    border: 1px solid #eee; /* Opcional: un borde sutil para visualizar las cajas */
+    border-radius: 8px; /* Opcional: bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Opcional: una pequeña sombra */
+    
+   
+}
+
+.content-item:hover {
+    transform: scale(1.03); /* Efecto de acercamiento al pasar el mouse, un poco menos agresivo */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra al hacer hover */
+}
+
 .content-item img {
-    max-width: 200px; /* Incrementa el tamaño máximo de la imagen */
-    height: auto;
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; /* <-- Cambia a cover si quieres que cubran el espacio */
+    object-position: center; /* Asegura que el centro de la imagen sea visible */
+    margin-bottom: 25px;
+    flex-shrink: 0; 
+}
+
+.content-item p {
+    font-size: 16px; /* Texto ligeramente más grande */
+    line-height: 1.7;
+    color: #555;
+    max-width: 320px;
+}
+
+/* --- ESTILOS PARA EL NUEVO BOTÓN .btn-53 --- */
+/* NOTA: Se oculta la animación de letras para igualar la imagen estática */
+
+.btn-53 {
+    /* Mantenemos tus estilos de apariencia */
+    background: transparent;
+    border: 2px solid #333;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
     margin-bottom: 20px;
-} /* Imagenes ligeramente más pequeñas */
-.item-title-button { display: inline-block; padding: 10px 20px; border: 2px solid #333; border-radius: 50px; font-weight: bold; margin-bottom: 15px; transition: all 0.3s ease; cursor: pointer; }
-.content-item p { font-size: 15px; line-height: 1.6; color: #555; max-width: 300px; } /* Ajuste de tamaño y max-width */
-.central-button { display: block; width: fit-content; margin: 40px auto 0; background-color: #5e4997; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; }
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Muy importante para incluir el padding en el ancho total */
+
+    /* --- AJUSTES CLAVE --- */
+    width: 90%;             /* Haz que el botón ocupe el 90% del ancho de la tarjeta */
+    max-width: 240px;       /* Un tope para que no se estire demasiado en pantallas grandes */
+    padding: 12px 10px;     /* Reducimos el padding horizontal para dar más espacio al texto */
+    font-size: 15px;        /* Hacemos la fuente un poco más pequeña para que quepa mejor */
+    min-width: unset;       /* Reseteamos cualquier ancho mínimo que pueda estar causando conflicto */
+}
+
+.btn-53:hover {
+    background-color: #002b5c; /* Color azul oscuro al pasar el mouse */
+    color: white;
+    border-color: #002b5c;
+}
+
+/* Ocultamos la capa con las letras animadas por ahora */
+.btn-53 .letters {
+    display: none;
+}
+
+/* Estilos para el botón central (opcional, pero consistente) */
+.central-button {
+    display: block;
+    width: fit-content;
+    margin: 60px auto 0;
+    background-color: #5e4997;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
 
 /* ============================================ */
 /* ========= PIE DE PÁGINA (FOOTER) =========== */
 /* ============================================ */
-.site-footer-main { background-color: #002b5c; color: #f0f0f0; padding-top: 50px; }
+
+.site-footer-main {
+    /* El gradiente azul va PRIMERO para que se ponga sobre la imagen */
+    background-image: linear-gradient(rgba(0, 43, 92, 0.9), rgba(0, 43, 92, 0.9)), url('https://uniempresarial.edu.co/wp-content/uploads/2020/02/bg-06-free-img.jpg');
+    
+    /* Propiedades para controlar la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    
+    /* El resto de tus propiedades */
+    color: #f0f0f0;
+    padding-top: 50px;
+}
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 30px; }
 .footer-logo { max-width: 200px; margin-bottom: 15px; }
 .footer-col h4 { color: #ffffff; margin-bottom: 20px; font-weight: 600; }
@@ -253,57 +409,70 @@ body {
 
   .btn-53, .btn-53 *, .btn-53 :after, .btn-53 :before { border: 0 solid; box-sizing: border-box; }
   .btn-53 { 
-    display: inline-block; 
-    -webkit-tap-highlight-color: transparent; 
-    background-color: #FFFFFF !important; /* <-- OBLIGA A SER BLANCO */
-    color: #fff; 
-    cursor: pointer; 
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; 
-    font-size: 100%; 
-    line-height: 1.5; 
-    text-decoration: none; 
-   border: 2px solid #000000 !important;
-    border-radius: 50px; 
-    font-weight: 900; 
-    overflow: hidden; 
-    padding: 1rem 2.5rem; 
-    position: relative; 
-    text-transform: uppercase; 
-    margin-top: 15px; 
+     display: inline-block; /* Permite que el botón se ajuste a su contenido */
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent !important;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; /* Ajustamos un poco la fuente para que quepa bien */
+    line-height: 1.5;
+    text-decoration: none;
+    border: 2px solid #000000 !important;
+    border-radius: 50px;
+    font-weight: 900;
+    overflow: hidden;
+    padding: 12px 22px; /* Un padding horizontal razonable que no desborda */
+    position: relative;
+    text-transform: uppercase;
+    margin-top: 15px;
     margin-bottom: 15px;
-  }
-  .btn-53 .original { 
-    background: #fff; 
-    color: #000000; /* <-- ARREGLADO: TEXTO NEGRO PARA QUE SE VEA */
-    display: grid; 
-    inset: 0; 
-    place-content: center; 
-    position: absolute; 
-    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1); 
-  }
-  .btn-53:hover .original { 
-    transform: translateY(100%); 
-  }
-  .btn-53 .letters { 
-    display: inline-flex; 
-    align-items: center; 
-  }
-  .btn-53 span { 
-    opacity: 0; 
-    transform: translateY(-15px); 
-    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s; 
+    box-sizing: border-box;
+
+    /* BORRAMOS las reglas de ancho que rompían la animación */
+    min-width: unset;
+}
+  .btn-53 .original {
+    background: #fff;
+    color: #000000;
+    display: grid;
+    inset: 0;
+    place-content: center;
+    position: absolute;
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+    white-space: nowrap; /* Importante: Evita que el texto se parta */
+}
+
+.btn-53:hover .original {
+    transform: translateY(100%);
+}
+
+/* Contenedor de las letras animadas */
+.btn-53 .letters {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap; /* Importante: Evita que las letras se partan */
+}
+
+/* Estilos para cada letra animada (esto no cambia) */
+.btn-53 span {
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
     color: transparent;
     background: linear-gradient(80deg, #2305c9, #c41c49);
     -webkit-background-clip: text;
     background-clip: text;
-  }
-  .btn-53 span:nth-child(2n) { 
-    transform: translateY(15px); 
-  }
-  .btn-53:hover span { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+}
+
+.btn-53 span:nth-child(2n) {
+    transform: translateY(15px);
+}
+
+.btn-53:hover span {
+    opacity: 1;
+    transform: translateY(0);
+}
   /* Delays para cada letra */
   .btn-53:hover span:nth-child(2) { transition-delay: 0.05s; } 
   .btn-53:hover span:nth-child(3) { transition-delay: 0.1s; } 
